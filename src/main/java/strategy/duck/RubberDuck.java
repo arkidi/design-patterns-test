@@ -6,8 +6,8 @@ import strategy.behavior.Squeak;
 public class RubberDuck extends Duck {
 
     public RubberDuck() {
-        flyBehavior = new FlyNoWay();
-        quackBehavior = new Squeak();
+        super.flyBehavior = new FlyNoWay();
+        super.quackBehavior = new Squeak();
     }
 
     @Override
