@@ -1,5 +1,6 @@
 package iterator;
 
+import iterator.dinermergercafe.CafeMenu;
 import iterator.transition.DinerMenu;
 import iterator.transition.Menu;
 import iterator.transition.PancakeHouseMenu;
@@ -18,8 +19,8 @@ public class MenuTestDrive {
     }
 
     @Test
-    @DisplayName("이터레이터 패턴 테스트")
-    public void should_menu_iterator() {
+    @DisplayName("이터레이터 패턴 테스트 1")
+    public void should_transition_iterator() {
         PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
         DinerMenu dinerMenu = new DinerMenu();
         ArrayList<Menu> menus = new ArrayList<Menu>();
@@ -27,5 +28,34 @@ public class MenuTestDrive {
         menus.add(dinerMenu);
         Waitress waitress = new Waitress(menus);
         waitress.printMenu();
+    }
+
+    @Test
+    @DisplayName("이터레이터 패턴 테스트 2")
+    public void should_dinermergercafe_iterator() {
+
+        iterator.dinermergercafe.PancakeHouseMenu pancakeHouseMenu = new iterator.dinermergercafe.PancakeHouseMenu();
+        iterator.dinermergercafe.DinerMenu dinerMenu = new iterator.dinermergercafe.DinerMenu();
+        CafeMenu cafeMenu = new CafeMenu();
+
+        iterator.dinermergercafe.Waitress waitress =
+                new iterator.dinermergercafe.Waitress(pancakeHouseMenu, dinerMenu, cafeMenu);
+
+        waitress.printMenu();
+        waitress.printVegetarianMenu();
+
+        System.out.println("\nCustomer asks is the Hotdog vegetarian?");
+        System.out.print("Waitress says: ");
+        if  (waitress.isItemVegetarian("Hotdog"))
+            System.out.println("Yes");
+        else
+            System.out.println("No");
+
+        System.out.println("\nCustomer asks is the Waffles vegetarian?");
+        System.out.print("Waitress says: ");
+        if  (waitress.isItemVegetarian("Waffles"))
+            System.out.println("Yes");
+        else
+            System.out.println("No");
     }
 }
