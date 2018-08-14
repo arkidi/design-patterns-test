@@ -33,7 +33,6 @@ public class MenuTestDrive {
     @Test
     @DisplayName("이터레이터 패턴 테스트 2")
     public void should_dinermergercafe_iterator() {
-
         iterator.dinermergercafe.PancakeHouseMenu pancakeHouseMenu = new iterator.dinermergercafe.PancakeHouseMenu();
         iterator.dinermergercafe.DinerMenu dinerMenu = new iterator.dinermergercafe.DinerMenu();
         CafeMenu cafeMenu = new CafeMenu();
